@@ -1,22 +1,22 @@
 {
-  "name": "my-project",
+  "name": "journal",
   "$schema": "../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
-  "sourceRoot": "./src",
+  "sourceRoot": "journal/src",
   "prefix": "my-project",
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/my-project",
-        "index": "./src/index.html",
-        "main": "./src/main.ts",
+        "outputPath": "dist/journal",
+        "index": "journal/src/index.html",
+        "main": "journal/src/main.ts",
         "polyfills": ["zone.js"],
-        "tsConfig": "./tsconfig.app.json",
+        "tsConfig": "journal/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
-        "assets": ["./src/favicon.ico", "./src/assets"],
-        "styles": ["./src/styles.scss"],
+        "assets": ["journal/src/favicon.ico", "journal/src/assets"],
+        "styles": ["journal/src/styles.scss"],
         "scripts": []
       },
       "configurations": {
@@ -50,10 +50,10 @@
       "executor": "@angular-devkit/build-angular:dev-server",
       "configurations": {
         "production": {
-          "browserTarget": "my-project:build:production"
+          "browserTarget": "journal:build:production"
         },
         "development": {
-          "browserTarget": "my-project:build:development"
+          "browserTarget": "journal:build:development"
         }
       },
       "defaultConfiguration": "development"
@@ -61,21 +61,21 @@
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
-        "browserTarget": "my-project:build"
+        "browserTarget": "journal:build"
       }
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["./src/**/*.ts", "./src/**/*.html"]
+        "lintFilePatterns": ["journal/**/*.ts", "journal/**/*.html"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectName}"],
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "jest.config.app.ts",
+        "jestConfig": "journal/jest.config.ts",
         "passWithNoTests": true
       },
       "configurations": {
